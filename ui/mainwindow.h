@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class SvgView; //forward declare
+
 namespace Ui {
 class MainWindow;
 }
@@ -16,7 +18,11 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *mUi;
+	SvgView* mView;
+
+private slots:
+    void openLoadClick();
 };
 
 #endif // MAINWINDOW_H
