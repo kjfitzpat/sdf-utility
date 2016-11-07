@@ -3,10 +3,13 @@
 
 #include <QMainWindow>
 
-class SvgView; //forward declare
+class QGraphicsScene;
+class QGraphicsPixmapItem;
+class SdfGeneratorWidget;
+class QVBoxLayout;
 
 namespace Ui {
-class MainWindow;
+    class MainWindow; 
 }
 
 class MainWindow : public QMainWindow
@@ -19,10 +22,16 @@ public:
 
 private:
     Ui::MainWindow *mUi;
-	SvgView* mView;
+    QPixmap mSourceImagePixmap;
+    QGraphicsScene* mSourceImageScene;
+    QGraphicsPixmapItem* mSourceImagePixmapItem;
+    SdfGeneratorWidget* mSdfGeneratorWidget;
 
 private slots:
-    void openLoadClick();
+    void mNewCommand();
+    void mSaveCommand();
+    void mGenerateCommand();
+    void mExitCommand();
 };
 
 #endif // MAINWINDOW_H

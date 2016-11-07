@@ -1,4 +1,4 @@
-# suppose you have created a ui file called mainwindow.ui
+# suppose you have created a ui file called MainWindow.ui
 cmake_minimum_required (VERSION 2.6)
 
 project(sdf_utility)
@@ -10,11 +10,11 @@ find_package(Qt5Widgets)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-QT5_WRAP_CPP(tst_hdr_moc mainwindow.h)
-QT5_WRAP_UI(tst_form_hdr mainwindow.ui)
+QT5_WRAP_CPP(MainWindow_header MainWindow.h)
+QT5_WRAP_UI(MainWindow_form MainWindow.ui)
 
-add_library(mainwindow ${tst_hdr_moc} ${tst_form_hdr})
-qt5_use_modules(mainwindow Widgets)
+add_library(MainWindow ${MainWindow_header} ${MainWindow_form})
+qt5_use_modules(MainWindow Widgets)
 
-add_executable(sdf_utility svgview.cpp main.cpp mainwindow)
-qt5_use_modules(sdf_utility Core Gui Widgets Svg OpenGL)
+add_executable(sdf_utility Main.cpp MainWindow.cpp MainWindow.h SdfGeneratorWidget.cpp SdfGeneratorWidget.h)
+qt5_use_modules(sdf_utility Core Gui Widgets OpenGL)
