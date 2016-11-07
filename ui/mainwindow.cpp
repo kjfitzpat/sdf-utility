@@ -11,9 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     mUi->setupUi(this);
 	mView = new SvgView();
-	mUi->mRenderParent->layout()->addWidget(mView);
+	//mUi->mRenderParent->layout()->addWidget(mView);
     //hook up load button click to open function
-    connect(mUi->mTestPushButton, SIGNAL(released()), this, SLOT(openLoadClick()));
+    //connect(mUi->mActionLoadGraphic, SIGNAL(triggered(bool)), this, SLOT(openLoadClick()));
 }
 
 MainWindow::~MainWindow() 
